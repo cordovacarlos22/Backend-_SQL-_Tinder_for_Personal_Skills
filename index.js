@@ -22,6 +22,11 @@ app.get('/test', (req, res) => {
   }
 });
 
+// ! #7 requires and mounts the user routes
+const userRoutes = require('./routes/user.route')
+app.use('/api/v1', userRoutes)
+
+
 // ! #6 starts the server and listens on the specified port
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`)
