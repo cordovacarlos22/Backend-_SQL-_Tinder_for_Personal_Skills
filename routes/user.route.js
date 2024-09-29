@@ -9,6 +9,7 @@ const userController = require('../controllers/user.controllers');
 // ? define routes
 // * POST /users - Register a new user
 router.post('/users', userController.registerUser);
+router.get('/users', userController.getAllUsers);
 
 
 // exports router 

@@ -14,8 +14,18 @@ const registerUser = async (req, res) => {
   }
 };
 
+const getAllUsers = async (req, res) => { 
+  try {
+    let users = await UserModel.findAllUsers();
+    res.json(users);
+  } catch (error) {
+    res.status(400).json({ error: error.message }); // Send only the error message
+  }
+}
+
 
 module.exports = {
   registerUser,
+  getAllUsers
   //... Other user routes...
 }

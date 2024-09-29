@@ -12,8 +12,16 @@ const create = (body) => {
     .returning('*') // ¿Qué datos quiero que me regrese?
 };
 
+const findAllUsers = () => {
+  return knex
+    .select('*') // ¿Qué datos quiero que me regrese?
+    .from('users') // ¿De qué tabla quiero obtener los datos?
+  
+};
+
 
 module.exports = {
   create,
+  findAllUsers
   // ... Other CRUD operations...
 }
