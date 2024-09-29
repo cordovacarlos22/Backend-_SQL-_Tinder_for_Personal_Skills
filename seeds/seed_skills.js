@@ -1,0 +1,71 @@
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+exports.seed = async function (knex) {
+  // Deletes ALL existing entries in 'skills' to prevent duplicates
+  await knex('skills').del();
+
+  // Inserts seed entries into the 'skills' table
+  await knex('skills').insert([
+    { name: 'JavaScript' },
+    { name: 'Python' },
+    { name: 'React' },
+    { name: 'Node.js' },
+    { name: 'Database Management' },
+    { name: 'SQL' },
+    { name: 'MongoDB' },
+    { name: 'GraphQL' },
+    { name: 'Django' },
+    { name: 'Flask' },
+    { name: 'Ruby on Rails' },
+    { name: 'Angular' },
+    { name: 'Vue.js' },
+    { name: 'DevOps' },
+    { name: 'Kubernetes' },
+    { name: 'Docker' },
+    { name: 'AWS' },
+    { name: 'Azure' },
+    { name: 'Google Cloud Platform' },
+    { name: 'Machine Learning' },
+    { name: 'Deep Learning' },
+    { name: 'Natural Language Processing' },
+    { name: 'Data Analysis' },
+    { name: 'Data Visualization' },
+    { name: 'Artificial Intelligence' },
+    { name: 'Blockchain' },
+    { name: 'Cybersecurity' },
+    { name: 'Computer Networking' },
+    { name: 'Cloud Computing' },
+    { name: 'REST API Development' },
+    { name: 'GraphQL API Development' },
+    { name: 'TypeScript' },
+    { name: 'Java' },
+    { name: 'C#' },
+    { name: 'C++' },
+    { name: 'PHP' },
+    { name: 'Go' },
+    { name: 'Rust' },
+    { name: 'Swift' },
+    { name: 'Kotlin' },
+    { name: 'Mobile App Development' },
+    { name: 'iOS Development' },
+    { name: 'Android Development' },
+    { name: 'Game Development' },
+    { name: 'AR/VR Development' },
+    { name: 'Testing & Debugging' },
+    { name: 'Agile Methodology' },
+    { name: 'Scrum' },
+    { name: 'Continuous Integration' },
+    { name: 'Version Control (Git)' },
+    { name: 'Shell Scripting' },
+    { name: 'Linux Administration' },
+    { name: 'Operating Systems' },
+    { name: 'Microservices Architecture' },
+    { name: 'Serverless Architecture' },
+    { name: 'Frontend Development' },
+    { name: 'Backend Development' },
+    { name: 'Fullstack Development' },
+    { name: 'Software Architecture' }
+  ]);
+};

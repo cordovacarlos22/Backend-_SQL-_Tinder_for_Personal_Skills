@@ -6,13 +6,6 @@ require('dotenv').config()
  */
 module.exports = {
 
-  development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './dev.sqlite3'
-    }
-  },
-
   staging: {
     client: 'postgresql',
     connection: {
@@ -29,7 +22,7 @@ module.exports = {
     }
   },
 
-  production: {
+  development: {
     client: 'postgresql',
     connection: {
       port: process.env.SUPA_DB_PORT_PROC,
