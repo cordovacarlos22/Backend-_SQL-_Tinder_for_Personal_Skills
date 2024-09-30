@@ -32,8 +32,8 @@ const findOneUser = (user_id) => {
 const updateUser = (userId, body) => {
   return knex
     .update(body)
-    .from('homes')
-    .where('house_id', userId)
+    .from('users')
+    .where('id', userId)
     .returning('*')
 };
 
