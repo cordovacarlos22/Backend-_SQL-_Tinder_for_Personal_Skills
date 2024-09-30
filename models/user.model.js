@@ -26,6 +26,7 @@ const findOneUser = (user_id) => {
     .select('*')  /// select all users 
     .from('users')  // from users table
     .where('id', user_id)  // where id is user_id
+    .returning('*') // return
 };
 
 // update  user 

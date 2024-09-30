@@ -46,7 +46,7 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     let deletedUser = await UserModel.deleteUser(req.params.userId);
-    res.status(200).json("User deleted successfully",deletedUser);
+    res.status(204).json("User deleted successfully",deletedUser);
   } catch (error) {
     res.status(400).json({ error: error.message }); // Send only the error message
   }
