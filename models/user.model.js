@@ -28,6 +28,23 @@ const findOneUser = (user_id) => {
     .where('id', user_id)  // where id is user_id
 };
 
+// update  user 
+const updateUser = (userId, body) => {
+  return knex
+    .update(body)
+    .from('homes')
+    .where('house_id', userId)
+    .returning('*')
+};
+
+
+// delete user
+const deleteUser = (userId) => {
+  return knex
+    .delete()
+    .from('users')
+    .where('id', userId)
+};
 
 
 
@@ -35,6 +52,9 @@ module.exports = {
   create,
   findAllUsers,
   findOneUser,
+  updateUser,
+  deleteUser
+
   
   // ... Other CRUD operations...
 }
