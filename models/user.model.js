@@ -12,16 +12,29 @@ const create = (body) => {
     .returning('*') // ¿Qué datos quiero que me regrese?
 };
 
+
+// * READ
 const findAllUsers = () => {
   return knex
-    .select('*') // ¿Qué datos quiero que me regrese?
-    .from('users') // ¿De qué tabla quiero obtener los datos?
-  
+    .select('*') // select all users
+    .from('users') // from table all users
+
 };
+
+const findOneUser = (user_id) => {
+  return knex
+    .select('*')  /// select all users 
+    .from('users')  // from users table
+    .where('id', user_id)  // where id is user_id
+};
+
+
 
 
 module.exports = {
   create,
-  findAllUsers
+  findAllUsers,
+  findOneUser,
+  
   // ... Other CRUD operations...
 }

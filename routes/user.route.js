@@ -10,6 +10,7 @@ const userController = require('../controllers/user.controllers');
 // * POST /users - Register a new user
 router.post('/users', userController.registerUser);
 router.get('/users', userController.getAllUsers);
+router.get('/users/:userId', userController.findOneUser);
 
 
 // exports router 

@@ -14,7 +14,7 @@ const registerUser = async (req, res) => {
   }
 };
 
-const getAllUsers = async (req, res) => { 
+const getAllUsers = async (req, res) => {
   try {
     let users = await UserModel.findAllUsers();
     res.json(users);
@@ -23,9 +23,19 @@ const getAllUsers = async (req, res) => {
   }
 }
 
+const findOneUser = async (req, res) => {
+  try {
+    let userFound = await UserModel.findOneUser(req.params.userId);
+    res.status(200).json(userFound);
+  } catch (error) {
+    res.status(400).json({ error: error.message }); // Send only the error message
+  }
+}
+
 
 module.exports = {
   registerUser,
-  getAllUsers
+  getAllUsers,
+  findOneUser
   //... Other user routes...
 }
