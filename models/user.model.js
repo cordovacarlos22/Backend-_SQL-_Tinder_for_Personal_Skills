@@ -46,10 +46,13 @@ const findOneUser = (user_id) => {
 
 const findUsersBySkill = (skillName) => {
   return knex('users')
-    .select('users.*')  // Select all columns from users table
+    .select(
+      'users.*',  // Select all user fields
+      knex.raw('COALESCE(json_agg(DISTINCT jsonb_build_object(\'id\', skills.id, \'name\', skills.name)) FILTER (WHERE skills.id IS NOT NULL), \'[]\') AS skills')  // Aggregate all the user's skills into an array
+    )
     .leftJoin('user_skills', 'users.id', 'user_skills.user_id')  // Join user_skills to link users to their skills
-    .leftJoin('skills', 'user_skills.skill_id', 'skills.id')  // Join skills to link skill details
-    .where('skills.name', skillName)  // Filter by skill name
+    .leftJoin('skills', 'user_skills.skill_id', 'skills.id')  // Join skills to get skill details
+    .where('skills.name', skillName)  // Filter by the skill name (e.g., 'JavaScript')
     .groupBy('users.id');  // Group by users to avoid duplicate rows
 };
 
