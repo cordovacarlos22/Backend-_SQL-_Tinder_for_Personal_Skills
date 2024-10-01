@@ -32,6 +32,16 @@ const findOneUser = async (req, res) => {
   }
 };
 
+//  find user by skill name
+const findUserBySkill = async (req, res) => {
+  try {
+    let usersBySkill = await UserModel.findUsersBySkill(req.params.skillName);
+    res.status(200).json(usersBySkill);
+  } catch (error) {
+    res.status(400).json({ error: error.message }); // Send only the error message
+  }
+};
+
 // update user
 const updateUser = async (req, res) => {
   try {
@@ -58,6 +68,7 @@ module.exports = {
   getAllUsers,
   findOneUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  findUserBySkill
   //... Other user routes...
 }

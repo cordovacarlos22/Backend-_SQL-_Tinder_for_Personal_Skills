@@ -43,6 +43,16 @@ const findOneUser = (user_id) => {
     .where('users.id', user_id)  // Filter by user_id to get the specific user
     .groupBy('users.id');  // Group by the user to aggregate the skills, contracts, and payments
 };
+
+const findUsersBySkill = (skillName) => {
+  return knex('users')
+    .select('users.*')  // Select all columns from users table
+    .leftJoin('user_skills', 'users.id', 'user_skills.user_id')  // Join user_skills to link users to their skills
+    .leftJoin('skills', 'user_skills.skill_id', 'skills.id')  // Join skills to link skill details
+    .where('skills.name', skillName)  // Filter by skill name
+    .groupBy('users.id');  // Group by users to avoid duplicate rows
+};
+
 // const findAllUsers = () => {
 //   return knex
 //     .select('*') // select all users
@@ -83,8 +93,7 @@ module.exports = {
   findAllUsers,
   findOneUser,
   updateUser,
-  deleteUser
-
-  
+  deleteUser,
+  findUsersBySkill
   // ... Other CRUD operations...
 }
