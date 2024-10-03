@@ -1,7 +1,6 @@
-// Ensure imports are at the top of the file
 const fs = require('fs');
 const path = require('path');
-const marked = require('marked');  // Import 'marked' for Markdown to HTML conversion
+const { marked } = require('marked');  // Make sure to import marked like this
 
 // Controller to render the README file as HTML with custom styles
 const renderReadme = (req, res) => {
@@ -14,8 +13,8 @@ const renderReadme = (req, res) => {
         throw new Error('Error loading the README file.');
       }
 
-      // Convert Markdown to HTML
-      const htmlContent = marked(data);
+      // Convert Markdown to HTML using marked.parse()
+      const htmlContent = marked.parse(data);
 
       // Send the HTML content wrapped in a styled template
       res.setHeader('Content-Type', 'text/html');
