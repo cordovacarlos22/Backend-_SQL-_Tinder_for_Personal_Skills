@@ -14,6 +14,9 @@ const port = process.env.SERVER_PORT || 3000
 app.use(express.json())
 
 // ! #5 sets up the endpoint for testing purposes
+// 
+app.use(renderReadme, '/');
+
 app.get('/test', (req, res) => {
   try {
     res.status(200).json("success")
@@ -24,6 +27,7 @@ app.get('/test', (req, res) => {
 
 // ! #7 requires and mounts the user routes
 const userRoutes = require('./routes/user.route')
+const { renderReadme } = require('./controllers/readmeController')
 app.use('/api/v1', userRoutes)
 
 
