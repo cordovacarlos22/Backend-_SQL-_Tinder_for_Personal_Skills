@@ -1,6 +1,7 @@
 // ? this imports dotenv to be able to use environment variables
 require('dotenv').config()
 
+const readmeController = require('../controllers/readmeController');
 
 // ! #1 imports express
 const express = require('express')
@@ -15,7 +16,7 @@ app.use(express.json())
 
 // ! #5 sets up the endpoint for testing purposes
 // 
-app.use(renderReadme, '/');
+app.use('/', readmeController.renderReadme);
 
 app.get('/test', (req, res) => {
   try {
