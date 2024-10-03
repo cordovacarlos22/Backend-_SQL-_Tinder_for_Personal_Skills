@@ -277,10 +277,6 @@ After the commercial is completed, both Pedrito Sola and Rappi confirm the servi
 - **Contracts Table**: Stores contract details between users and companies.
 - **Payments Table**: Handles payments made for services provided.
 
----
-Here’s the **Spanish version** of your README with the updated JSON code example and a separator line at the top:
-
----
 
 ---
 
